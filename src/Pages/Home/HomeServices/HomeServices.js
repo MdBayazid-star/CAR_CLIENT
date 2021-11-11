@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const HomeServices = () => {
   const [cars, setCars] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/cars")
+    fetch("https://gentle-temple-66262.herokuapp.com/cars")
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, []);
