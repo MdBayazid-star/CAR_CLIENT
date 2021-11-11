@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 const AddProducts = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     axios
       .post("https://gentle-temple-66262.herokuapp.com/cars", data)
       .then((res) => {

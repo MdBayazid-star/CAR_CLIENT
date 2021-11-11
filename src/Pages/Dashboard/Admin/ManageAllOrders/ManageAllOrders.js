@@ -56,7 +56,7 @@ const ManageAllOrders = () => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {userOrder.patientName}
+                  {userOrder.clientsName}
                 </TableCell>
                 <TableCell align="center">{userOrder.email}</TableCell>
                 <TableCell align="center">{userOrder.serviceName}</TableCell>

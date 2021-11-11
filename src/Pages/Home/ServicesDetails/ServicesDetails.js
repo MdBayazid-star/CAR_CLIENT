@@ -48,7 +48,7 @@ const ServiceDetails = () => {
   };
   const { user } = useAuth();
   const initialInfo = {
-    patientName: user.displayName,
+    clientsName: user.displayName,
     email: user.email,
     phone: "",
     address: "",
@@ -216,7 +216,7 @@ const ServiceDetails = () => {
                     <TextField
                       sx={{ width: "90%", m: 1 }}
                       id="outlined-size-small"
-                      name="patientName"
+                      name="clientsName"
                       onBlur={handleOnBlur}
                       defaultValue={user.displayName}
                       size="small"
