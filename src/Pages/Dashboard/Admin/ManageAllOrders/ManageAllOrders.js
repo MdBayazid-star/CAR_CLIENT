@@ -10,14 +10,14 @@ import Paper from "@mui/material/Paper";
 const ManageAllOrders = () => {
   const [userOrders, setUserOrders] = useState([]);
   useEffect(() => {
-    fetch("https://gentle-temple-66262.herokuapp.com/userOrder")
+    fetch("http://localhost:5000/usersOrder")
       .then((res) => res.json())
       .then((data) => setUserOrders(data));
   }, []);
   const handleDeleteUserService = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?", id);
     if (proceed) {
-      const url = `https://gentle-temple-66262.herokuapp.com/userOrder/${id}`;
+      const url = `http://localhost:5000/usersOrder/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -52,7 +52,7 @@ const ManageAllOrders = () => {
           <TableBody>
             {userOrders.map((userOrder) => (
               <TableRow
-                key={userOrder.name}
+                key={userOrder._id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
