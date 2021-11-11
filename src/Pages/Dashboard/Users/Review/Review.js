@@ -68,8 +68,9 @@ const Review = () => {
                   id="outlined-size-small"
                   name="clientsName"
                   onBlur={handleOnBlur}
-                  placeholder={user.displayName}
+                  defaultValue={user.displayName}
                   size="small"
+                  required
                 />
                 <TextField
                   sx={{ width: "90%", m: 1 }}
@@ -78,14 +79,16 @@ const Review = () => {
                   onBlur={handleOnBlur}
                   defaultValue={user.email}
                   size="small"
+                  required
                 />
                 <TextField
                   sx={{ width: "90%", m: 1 }}
                   id="outlined-size-small"
-                  name="phone"
+                  name="email"
                   onBlur={handleOnBlur}
-                  placeholder="phone Number"
+                  placeholder="Description"
                   size="small"
+                  required
                 />
                 <TextField
                   sx={{ width: "90%", m: 1 }}

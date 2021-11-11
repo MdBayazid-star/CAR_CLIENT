@@ -52,3 +52,7 @@
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
+.card-img {
+  width: 100px;
+  height: 100px;
+}
