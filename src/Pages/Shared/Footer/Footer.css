@@ -1,0 +1,46 @@
+.footer {
+  background: #1d2636;
+  color: aliceblue;
+}
+.footerLink h4 {
+  margin-bottom: 20px;
+}
+.footerLink li {
+  color: #436d88;
+  line-height: 40px;
+  list-style-type: none;
+  cursor: pointer;
+}
+.foot {
+  color: #436d88;
+}
+.footerLink li:hover {
+  color: #fff;
+}
+.footerText p {
+  color: #436d88;
+}
+.footerLink h4 {
+  /* border-bottom: 0.1px solid rgba(255, 255, 255, 0.516); */
+  color: #e0f6ef;
+}
+.footerLink li i {
+  transition: all ease 0.7s;
+  -webkit-transition: all ease 0.7s;
+  -moz-transition: all ease 0.7s;
+  -ms-transition: all ease 0.7s;
+  -o-transition: all ease 0.7s;
+  transform: rotate(0);
+  -webkit-transform: rotate(0);
+  -moz-transform: rotate(0);
+  -ms-transform: rotate(0);
+  -o-transform: rotate(0);
+}
+.footerLink li:hover i {
+  margin-right: 8px;
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+}

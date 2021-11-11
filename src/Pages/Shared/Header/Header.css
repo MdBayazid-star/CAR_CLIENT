@@ -1,0 +1,16 @@
+.homeBanner {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(https://i0.wp.com/demo2.fitwp.com/corify/wp-content/uploads/sites/16/2020/07/home-slider-1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner_content {
+  background: #ffffff;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
