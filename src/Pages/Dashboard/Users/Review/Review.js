@@ -33,7 +33,7 @@ const Review = () => {
       address: "",
     };
     // send to the server
-    fetch("http://localhost:5000/usersReview", {
+    fetch("https://gentle-temple-66262.herokuapp.com/usersReview", {
       method: "POST",
       headers: {
         "content-type": "application/json",

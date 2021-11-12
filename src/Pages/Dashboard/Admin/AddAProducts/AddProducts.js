@@ -5,12 +5,14 @@ import { useForm } from "react-hook-form";
 const AddProducts = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    axios.post("http://localhost:5000/cars", data).then((res) => {
-      if (res.data.insertedId) {
-        alert("added Successfully");
-        reset();
-      }
-    });
+    axios
+      .post("https://gentle-temple-66262.herokuapp.com/cars", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("added Successfully");
+          reset();
+        }
+      });
   };
   return (
     <div className="container">
