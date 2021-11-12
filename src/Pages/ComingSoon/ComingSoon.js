@@ -7,7 +7,10 @@ const ComingSoon = () => {
       <div>
         <img className="img-fluid comingSoonImg" src={comingSoonImg} alt="" />
       </div>
-      <div className="d-flex justify-content-center">
+      <div
+        className="d-flex justify-content-center
+      "
+      >
         <Link to="/">
           <button className="btn-Car">
             <i class="fas fa-arrow-left"></i> Back To Home

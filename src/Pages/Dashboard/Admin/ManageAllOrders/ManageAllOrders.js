@@ -33,6 +33,27 @@ const ManageAllOrders = () => {
         });
     }
   };
+
+  const handleUpdateUser = (id) => {
+    const url = `https://gentle-temple-66262.herokuapp.com/usersOrder/${id}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          alert("Update Successful");
+        }
+        console.log(data);
+        fetch("http://localhost:5000/usersOrders")
+          .then((res) => res.json())
+          .then((data) => setUserOrders(data));
+      });
+  };
+
   return (
     <div className="container">
       <TableContainer
@@ -42,7 +63,7 @@ const ManageAllOrders = () => {
         <Table sx={{ minWidth: 200 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Name</TableCell>
+              <TableCell fontWeight="600">Name</TableCell>
               <TableCell align="center">Email</TableCell>
               <TableCell align="center">Order Name</TableCell>
               <TableCell align="center">Order Price</TableCell>
@@ -62,7 +83,21 @@ const ManageAllOrders = () => {
                 <TableCell align="center">{userOrder.serviceName}</TableCell>
                 <TableCell align="center">${userOrder.servicePrice}</TableCell>
                 <TableCell align="center">
-                  <button className="btn-Car me-3">Shipped</button>
+                  {!userOrder.condition ? (
+                    <button
+                      onClick={() => handleUpdateUser(userOrder._id)}
+                      className="btn-Car me-3"
+                    >
+                      pending
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => handleUpdateUser(userOrder._id)}
+                      className="btn-Car-outline me-3"
+                    >
+                      shipped
+                    </button>
+                  )}
                   <button
                     onClick={() => handleDeleteUserService(userOrder._id)}
                     className="btn-Car"
