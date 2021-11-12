@@ -11,6 +11,7 @@ import Error from "./Pages/Error/Error";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import AllServices from "./Pages/AllServices/AllServices";
 import ManageAllOrders from "./Pages/Dashboard/Admin/ManageAllOrders/ManageAllOrders";
+import ComingSoon from "./Pages/ComingSoon/ComingSoon";
 // import ServicesDetails from "./Pages/Home/ServicesDetails/ServicesDetails";
 
 function App() {
@@ -19,9 +20,6 @@ function App() {
       <AuthProvider>
         <Router>
           <Switch>
-            <Route exact path="/">
-              <Home></Home>
-            </Route>
             <Route path="/home">
               <Home></Home>
             </Route>
@@ -37,15 +35,18 @@ function App() {
             <Route path="/allServices">
               <AllServices></AllServices>
             </Route>
-            <PrivetRoute path="/servicesDetails/:key">
+            <Route path="/servicesDetails/:key">
               <ServiceDetails></ServiceDetails>
-            </PrivetRoute>
-            <PrivetRoute exact path="/allServices/servicesDetails/:key">
-              <ServiceDetails></ServiceDetails>
-            </PrivetRoute>
+            </Route>
+            <Route path="/comingSoon">
+              <ComingSoon></ComingSoon>
+            </Route>
             <PrivetRoute path="/dashboard">
               <Dashboard></Dashboard>
             </PrivetRoute>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
             <Route path="*">
               <Error></Error>
             </Route>

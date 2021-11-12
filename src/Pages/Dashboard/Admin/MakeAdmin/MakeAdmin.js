@@ -12,7 +12,7 @@ const MakeAdmin = () => {
   };
   const handleAdminSubmit = (e) => {
     const user = { email };
-    fetch("https://gentle-temple-66262.herokuapp.com/users/admin", {
+    fetch("http://localhost:5000/users/admin", {
       method: "PUT",
       headers: {
         authorization: `Bearer ${token}`,
@@ -31,21 +31,36 @@ const MakeAdmin = () => {
     e.preventDefault();
   };
   return (
-    <div>
-      <h2>Make an Admin</h2>
-      <form onSubmit={handleAdminSubmit}>
-        <TextField
-          sx={{ width: "50%" }}
-          label="Email"
-          type="email"
-          onBlur={handleOnBlur}
-          variant="standard"
-        />
-        <button type="submit" className="btn-Car">
-          Make Admin
-        </button>
-      </form>
-      {success && <Alert severity="success">Made Admin successfully!</Alert>}
+    <div className="container">
+      <div className="row">
+        <div className="col-lg-6 ">
+          <div className=" br-5 bs-red p-5">
+            <h2>Make An Admin</h2>
+            <form className="d-flex flex-column" onSubmit={handleAdminSubmit}>
+              <TextField
+                label="Name"
+                type="Text"
+                variant="standard"
+                sx={{ mb: 2 }}
+              />
+              <TextField
+                label="Email"
+                type="email"
+                sx={{ mb: 2 }}
+                variant="standard"
+                onBlur={handleOnBlur}
+              />
+
+              <button type="submit" className="btn-Car  mt-3">
+                Make Admin
+              </button>
+            </form>
+            {success && (
+              <Alert severity="success">Made Admin successfully!</Alert>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

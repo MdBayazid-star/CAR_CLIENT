@@ -1,19 +1,14 @@
-import { TextField, Typography } from "@mui/material";
+import { Rating, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
 import useAuth from "../../../../Hooks/useAuth";
-
+import StarIcon from "@mui/icons-material/Star";
 const Review = () => {
   const { user } = useAuth();
-  const initialInfo = {
-    userImg:
-      "https://i.ibb.co/Qf1rWhZ/114-1149878-setting-user-avatar-in-specific-size-without-breaking.png",
-    clientsName: user.displayName,
-    email: user.email,
-    phone: "",
-    address: "",
-  };
-  const [bookingInfo, setBookingInfo] = useState(initialInfo);
+  const [value, setValue] = useState(0);
+
+  console.log(value);
+  const [bookingInfo, setBookingInfo] = useState({});
   const handleOnBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
@@ -21,13 +16,24 @@ const Review = () => {
     newInfo[field] = value;
     setBookingInfo(newInfo);
   };
+
   const handleBookingSubmit = (e) => {
-    // collect data
     const orders = {
       ...bookingInfo,
+      userImg: `${
+        user.photoURL
+          ? user.photoURL
+          : "https://i.ibb.co/Qf1rWhZ/114-1149878-setting-user-avatar-in-specific-size-without-breaking.png"
+      }`,
+      role: "client",
+      rating: value,
+      clientsName: user.displayName,
+      email: user.email,
+      phone: "",
+      address: "",
     };
     // send to the server
-    fetch("https://gentle-temple-66262.herokuapp.com/usersReview", {
+    fetch("http://localhost:5000/usersReview", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -83,23 +89,32 @@ const Review = () => {
                 />
                 <TextField
                   sx={{ width: "90%", m: 1 }}
-                  id="outlined-size-small"
-                  name="email"
+                  multiline
+                  name="massage"
+                  rows={4}
                   onBlur={handleOnBlur}
-                  placeholder="Description"
-                  size="small"
-                  required
+                  placeholder="massage"
                 />
-                <TextField
-                  sx={{ width: "90%", m: 1 }}
-                  id="outlined-size-small"
-                  name="address"
-                  onBlur={handleOnBlur}
-                  placeholder="Home Address"
-                  size="small"
+                <h6 className="p-1 mt-3">
+                  <small className="text-muted">
+                    Please rate us by selecting star.
+                  </small>
+                </h6>
+                <Rating
+                  className=""
+                  name="rating"
+                  value={value}
+                  precision={0.5}
+                  onChange={(event, newValue) => {
+                    setValue(newValue);
+                    console.log(value);
+                  }}
+                  emptyIcon={
+                    <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
+                  }
                 />
 
-                <button type="submit" className="btn-Car">
+                <button type="submit" className="btn-Car d-block">
                   Submit
                 </button>
               </form>
@@ -110,5 +125,4 @@ const Review = () => {
     </div>
   );
 };
-
 export default Review;

@@ -15,7 +15,7 @@ const ServiceDetails = () => {
   const { key } = useParams();
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("https://gentle-temple-66262.herokuapp.com/cars")
+    fetch("http://localhost:5000/cars")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -30,7 +30,7 @@ const ServiceDetails = () => {
       servicePrice: ExactItem[0]?.price,
     };
     // send to the server
-    fetch("https://gentle-temple-66262.herokuapp.com/userOrder", {
+    fetch("http://localhost:5000/usersOrder", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -13,7 +13,7 @@ const MyOrders = () => {
   const { user, token } = useAuth();
   const [userOrders, setUserOrders] = useState([]);
   useEffect(() => {
-    const url = `https://gentle-temple-66262.herokuapp.com/usersOrder?email=${user.email}`;
+    const url = `http://localhost:5000/usersOrder?email=${user.email}`;
     fetch(url, {
       headers: {
         authorization: `Bearer ${token}`,
@@ -26,7 +26,7 @@ const MyOrders = () => {
   const handleDeleteUserService = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?", id);
     if (proceed) {
-      const url = `https://gentle-temple-66262.herokuapp.com/userOrder/${id}`;
+      const url = `http://localhost:5000/usersOrder/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -43,8 +43,8 @@ const MyOrders = () => {
     }
   };
   return (
-    <div>
-      <h2>Appointments: {userOrders.length}</h2>
+    <div className="container">
+      <h2>My Orders: {userOrders.length}</h2>
       <TableContainer component={Paper}>
         <Table sx={{}} aria-label="Appointments table">
           <TableHead>

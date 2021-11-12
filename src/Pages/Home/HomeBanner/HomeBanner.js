@@ -8,8 +8,15 @@ const HomeBanner = () => {
           <div className="col-lg-6 col-md-12 col-12 my-5">
             <div className="banner_content p-5">
               <h1>Take Best Car</h1>
-              <h1>
-                From <span>Carify</span>
+              <h1 className="d-flex align-items-center ">
+                From
+                <a className="navbar-brand d-flex align-items-center" href="/">
+                  <img
+                    src="https://i.ibb.co/fd278Mz/Screenshot-21-removebg-preview.png"
+                    className="img-fluid "
+                    alt=""
+                  />
+                </a>
               </h1>
               <p className="">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nam

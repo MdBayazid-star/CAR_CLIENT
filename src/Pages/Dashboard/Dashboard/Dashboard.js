@@ -25,6 +25,7 @@ import ManageAllProducts from "../Admin/ManageAllProducts/ManageAllProducts";
 import MyOrders from "../Users/MyOrders/MyOrders";
 import UserPay from "../Users/UserPay/UserPay";
 import Review from "../Users/Review/Review";
+import ComingSoon from "../../ComingSoon/ComingSoon";
 
 const drawerWidth = 200;
 
@@ -130,6 +131,7 @@ function Dashboard(props) {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          backgroundColor: "#ff725e80",
         }}
       >
         <Toolbar>
@@ -143,7 +145,8 @@ function Dashboard(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Dashboard
+            {admin && "Admin Dashboard"}
+            {!admin && "User Dashboard"}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -195,14 +198,17 @@ function Dashboard(props) {
         <Toolbar />
 
         <Switch>
-          <Route exact path={path}>
-            {/* <DashboardHome></DashboardHome> */}
-          </Route>
+          {/* <Route exact path={path}>
+            <ManageAllProducts></ManageAllProducts>
+          </Route> */}
+          <AdminRoute path={`${path}/manageAllProducts`}>
+            <ManageAllProducts></ManageAllProducts>
+          </AdminRoute>
           <Route path={`${path}/myOrders`}>
             <MyOrders></MyOrders>
           </Route>
           <Route path={`${path}/userPay`}>
-            <UserPay></UserPay>
+            <ComingSoon></ComingSoon>
           </Route>
           <Route path={`${path}/reviews`}>
             <Review></Review>
@@ -215,9 +221,6 @@ function Dashboard(props) {
           </AdminRoute>
           <AdminRoute path={`${path}/manageAllOrders`}>
             <ManageAllOrders></ManageAllOrders>
-          </AdminRoute>
-          <AdminRoute path={`${path}/manageAllProducts`}>
-            <ManageAllProducts></ManageAllProducts>
           </AdminRoute>
         </Switch>
       </Box>

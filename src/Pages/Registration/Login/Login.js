@@ -71,6 +71,13 @@ const Login = () => {
                       Please Register
                     </NavLink>
                   </p>
+                  <button
+                    onClick={handleGoogleSignIn}
+                    className="btn-Car-outline"
+                    type="submit"
+                  >
+                    <i class="fab fa-google"></i> Google Login
+                  </button>
                   {isLoading && <CircularProgress />}
                   {user?.email && (
                     <Alert severity="success">Login successfully!</Alert>
