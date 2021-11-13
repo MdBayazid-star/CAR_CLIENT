@@ -57,10 +57,7 @@ const ManageAllOrders = () => {
   return (
     <div className="container">
       <TableContainer id="table" component={Paper}>
-        <Table
-          sx={{ minWidth: 200, overflow: "scroll" }}
-          aria-label="simple table"
-        >
+        <Table aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell sx={{ fontWeight: "700" }}>Name</TableCell>
