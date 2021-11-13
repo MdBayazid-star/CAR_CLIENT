@@ -43,10 +43,10 @@ const Review = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          window.alert("Order SuccessFull ");
+          window.alert("Review SuccessFull ");
         }
       });
-
+    document.getElementById("Form").reset();
     e.preventDefault();
   };
 
@@ -65,6 +65,7 @@ const Review = () => {
                 My Review
               </Typography>
               <form
+                id="Form"
                 className="mt-4"
                 sx={{ textAlign: "center" }}
                 onSubmit={handleBookingSubmit}

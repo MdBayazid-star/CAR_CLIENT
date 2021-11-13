@@ -57,17 +57,28 @@ const ManageAllOrders = () => {
   return (
     <div className="container">
       <TableContainer
-        sx={{ maxHeight: 800, overflow: "scroll" }}
+        sx={{ maxHeight: 800, minWidth: 200, overflow: "scroll" }}
         component={Paper}
       >
-        <Table sx={{ minWidth: 200 }} aria-label="simple table">
+        <Table
+          sx={{ minWidth: 200, overflow: "scroll" }}
+          aria-label="simple table"
+        >
           <TableHead>
             <TableRow>
-              <TableCell fontWeight="600">Name</TableCell>
-              <TableCell align="center">Email</TableCell>
-              <TableCell align="center">Order Name</TableCell>
-              <TableCell align="center">Order Price</TableCell>
-              <TableCell align="center">Action</TableCell>
+              <TableCell sx={{ fontWeight: "700" }}>Name</TableCell>
+              <TableCell sx={{ fontWeight: "700" }} align="center">
+                Email
+              </TableCell>
+              <TableCell sx={{ fontWeight: "700" }} align="center">
+                Order Name
+              </TableCell>
+              <TableCell sx={{ fontWeight: "700" }} align="center">
+                Order Price
+              </TableCell>
+              <TableCell sx={{ fontWeight: "700" }} align="center">
+                Action
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

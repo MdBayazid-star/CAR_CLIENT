@@ -25,8 +25,8 @@ const HomeBanner = () => {
                 people rather than goods.
               </p>
               <div>
-                <button className="btn-Car me-4 mb-3">Log In </button>
-                <button className="btn-Car-outline"> Add Car</button>
+                <button className="btn-Car me-4 mb-3">Get Started</button>
+                <button className="btn-Car-outline"> Buy Car</button>
               </div>
             </div>
           </div>

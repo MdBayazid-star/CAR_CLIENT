@@ -1,4 +1,3 @@
-import { Link } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 
 const ManageAllProducts = () => {

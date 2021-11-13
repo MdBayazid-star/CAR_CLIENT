@@ -1,6 +1,6 @@
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import "./Header.css";
 import Badge from "@mui/material/Badge";
@@ -115,16 +115,19 @@ const Header = () => {
                 </div>
                 {user?.email ? (
                   <Box>
-                    <Badge
-                      className="ms-3 me-4"
-                      badgeContent={userOrders.length}
-                      color="error"
-                    >
-                      <ShoppingCartIcon
-                        sx={{ color: "#ff725e" }}
-                        color="action"
-                      />
-                    </Badge>
+                    <Link to="/dashboard/myOrders">
+                      {" "}
+                      <Badge
+                        className="ms-3 me-4"
+                        badgeContent={userOrders.length}
+                        color="error"
+                      >
+                        <ShoppingCartIcon
+                          sx={{ color: "#ff725e" }}
+                          color="action"
+                        />
+                      </Badge>
+                    </Link>
                     <button onClick={logout} className="btn-Car">
                       Logout
                     </button>

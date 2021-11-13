@@ -44,7 +44,7 @@ const ServiceDetails = () => {
           window.alert("Order SuccessFull ");
         }
       });
-
+    document.getElementById("Form").reset();
     e.preventDefault();
   };
   const { user } = useAuth();
@@ -278,6 +278,7 @@ const ServiceDetails = () => {
                     Order From
                   </Typography>
                   <form
+                    id="Form"
                     sx={{ textAlign: "center" }}
                     onSubmit={handleBookingSubmit}
                   >
