@@ -1,4 +1,4 @@
-# `Getting Started with Health Plus`
+# `Getting Started with Carify`
 
 The project Live Link was [Carify](https://carify-2021.web.app/).
 

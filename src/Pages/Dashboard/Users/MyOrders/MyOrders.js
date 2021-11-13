@@ -57,7 +57,7 @@ const MyOrders = () => {
       {userOrders[0] && (
         <div>
           <h2>My Orders: {userOrders.length}</h2>
-          <TableContainer component={Paper}>
+          <TableContainer id="table" component={Paper}>
             <Table sx={{}} aria-label="Appointments table">
               <TableHead>
                 <TableRow>

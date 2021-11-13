@@ -56,10 +56,7 @@ const ManageAllOrders = () => {
 
   return (
     <div className="container">
-      <TableContainer
-        sx={{ maxHeight: 800, minWidth: 200, overflow: "scroll" }}
-        component={Paper}
-      >
+      <TableContainer id="table" component={Paper}>
         <Table
           sx={{ minWidth: 200, overflow: "scroll" }}
           aria-label="simple table"
