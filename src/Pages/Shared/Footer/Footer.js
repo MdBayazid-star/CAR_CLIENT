@@ -11,7 +11,18 @@ const Footer = () => {
             <div className="row">
               <div className="col-lg-6 my-auto">
                 <Link className="navbar-brand text-light" to="/home">
-                  <span>Carify</span>
+                  <span>
+                    <a
+                      className="navbar-brand d-flex align-items-center"
+                      href="/"
+                    >
+                      <img
+                        src="https://i.ibb.co/fd278Mz/Screenshot-21-removebg-preview.png"
+                        className="img-fluid"
+                        alt=""
+                      />
+                    </a>
+                  </span>
                 </Link>
                 <h3 className="mt-3">Do You Need Help With Anything?</h3>
                 <p className="w-75 foot fs-6 text">
@@ -27,9 +38,7 @@ const Footer = () => {
                     aria-describedby="basic-addon2"
                   />
                   <NavLink to="/commingSoon">
-                    <button className="btn-Car-outline rounded-0 border-0">
-                      Subscribe
-                    </button>
+                    <button className="btn-Car border-0">Subscribe</button>
                   </NavLink>
                 </div>
               </div>

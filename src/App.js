@@ -10,9 +10,7 @@ import ServiceDetails from "./Pages/Home/ServicesDetails/ServicesDetails";
 import Error from "./Pages/Error/Error";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import AllServices from "./Pages/AllServices/AllServices";
-import ManageAllOrders from "./Pages/Dashboard/Admin/ManageAllOrders/ManageAllOrders";
 import ComingSoon from "./Pages/ComingSoon/ComingSoon";
-// import ServicesDetails from "./Pages/Home/ServicesDetails/ServicesDetails";
 
 function App() {
   return (

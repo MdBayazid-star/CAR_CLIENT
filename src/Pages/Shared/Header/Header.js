@@ -1,12 +1,24 @@
-import { Button } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import "./Header.css";
+import Badge from "@mui/material/Badge";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Header = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, token } = useAuth();
+  const [userOrders, setUserOrders] = useState([]);
+  useEffect(() => {
+    const url = `https://gentle-temple-66262.herokuapp.com/usersOrder?email=${user.email}`;
+    fetch(url, {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setUserOrders(data));
+  }, [user.email, token]);
   return (
     <div className=" shadow">
       <div className="container">
@@ -61,13 +73,58 @@ const Header = () => {
                     Ours Cars
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    activeStyle={{
+                      fontWeight: "bold",
+                      color: "#db2d2dd2",
+                    }}
+                    to="/dashboard"
+                    className="nav-link"
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
               </ul>
-              <div className="d-flex mx-4">
+              <div className="d-flex justify-content-center align-items-center">
+                <div className="me-3 logBok">
+                  {user.photoURL ? (
+                    <span>
+                      <img
+                        className="userImg p-1 cart-image"
+                        src={user.photoURL}
+                        alt=""
+                      />
+                    </span>
+                  ) : (
+                    <span>
+                      <img
+                        className="userImg p-1 cart-image"
+                        src="https://i.ibb.co/Qf1rWhZ/114-1149878-setting-user-avatar-in-specific-size-without-breaking.png"
+                        alt=""
+                      />
+                    </span>
+                  )}
+                  {user.displayName ? (
+                    <span className="text-Blue ts-5 color-pink fw-bold ms-2 ">
+                      {user.displayName}
+                    </span>
+                  ) : (
+                    <span></span>
+                  )}
+                </div>
                 {user?.email ? (
                   <Box>
-                    <NavLink style={{ textDecoration: "none" }} to="/dashboard">
-                      <button className="btn-Car me-3">Dashboard</button>
-                    </NavLink>
+                    <Badge
+                      className="ms-3 me-4"
+                      badgeContent={userOrders.length}
+                      color="error"
+                    >
+                      <ShoppingCartIcon
+                        sx={{ color: "#ff725e" }}
+                        color="action"
+                      />
+                    </Badge>
                     <button onClick={logout} className="btn-Car">
                       Logout
                     </button>

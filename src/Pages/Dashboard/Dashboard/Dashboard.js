@@ -6,12 +6,9 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -23,7 +20,6 @@ import AddProducts from "../Admin/AddAProducts/AddProducts";
 import ManageAllOrders from "../Admin/ManageAllOrders/ManageAllOrders";
 import ManageAllProducts from "../Admin/ManageAllProducts/ManageAllProducts";
 import MyOrders from "../Users/MyOrders/MyOrders";
-import UserPay from "../Users/UserPay/UserPay";
 import Review from "../Users/Review/Review";
 import ComingSoon from "../../ComingSoon/ComingSoon";
 
@@ -33,7 +29,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
-  const { admin, logout } = useAuth();
+  const { admin } = useAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -43,80 +39,71 @@ function Dashboard(props) {
       <Toolbar />
       <Divider />
       {!admin && (
-        <Box>
-          <Link to="/home">
-            <button className="btn-Car my-2">
+        <List>
+          <Link className="DashboardLink" to="/home">
+            <ListItem className="dashboardLinks" button>
               <i class="fas fa-home"></i> Home
-            </button>
+            </ListItem>
           </Link>
-          <Link to={`${url}/userPay`}>
-            <button className="btn-Car my-2">
-              <i class="fas fa-wallet"></i> Payment
-            </button>
+          <Link className="DashboardLink" to={`${url}/userPay`}>
+            <ListItem className="dashboardLinks" button>
+              <i class="fas fa-shopping-cart"></i> Payment
+            </ListItem>
           </Link>
-          <Link to={`${url}/myOrders`}>
-            <button className="btn-Car my-2">
+
+          <Link className="DashboardLink" to={`${url}/myOrders`}>
+            <ListItem className="dashboardLinks" button>
               <i class="fas fa-shopping-bag"></i> My Orders
-            </button>
+            </ListItem>
           </Link>
-          <Link to={`${url}/reviews`}>
-            <button className="btn-Car my-2">
+
+          <Link className="DashboardLink" to={`${url}/reviews`}>
+            <ListItem className="dashboardLinks" button>
               <i class="far fa-grin-stars"></i> Reviews
-            </button>
+            </ListItem>
           </Link>
-          <Link to="/login">
-            <button onClick={logout} className="btn-Car my-2">
+          <Link className="DashboardLink" to="/login">
+            <ListItem className="dashboardLinks" button>
               <i class="fas fa-sign-out-alt"></i> Log Out
-            </button>
+            </ListItem>
           </Link>
-        </Box>
+        </List>
       )}
+
       {admin && (
-        <div className="d-flex flex-column align-items-canter">
-          <Box>
-            <Link to="/home">
-              <button className="btn-Car my-2">
-                <i class="fas fa-home"></i> Home
-              </button>
-            </Link>
-            <Link to={`${url}/makeAdmin`}>
-              <button className="btn-Car my-2">
-                <i class="fas fa-users-cog"></i> Make Admin
-              </button>
-            </Link>
-            <Link to={`${url}/addDoctor`}>
-              <button className="btn-Car my-2">
-                <i class="fas fa-car"></i> Add Products
-              </button>
-            </Link>
-            <Link to={`${url}/manageAllOrders`}>
-              <button className="btn-Car my-2 px-3">
-                <i class="fas fa-cart-arrow-down "></i> Manage All orders
-              </button>
-            </Link>
-            <Link to={`${url}/manageAllProducts`}>
-              <button className="btn-Car my-2 px-3">
-                <i class="fas fa-clipboard-list"></i> Manage All Products
-              </button>
-            </Link>
-            <Link to="/login">
-              <button onClick={logout} className="btn-Car my-2">
-                <i class="fas fa-sign-out-alt"></i> Log Out
-              </button>
-            </Link>
-          </Box>
-        </div>
+        <List>
+          <Link className="DashboardLink" to="/home">
+            <ListItem className="dashboardLinks" button>
+              <i class="fas fa-home"></i> Home
+            </ListItem>
+          </Link>
+          <Link className="DashboardLink" to={`${url}/makeAdmin`}>
+            <ListItem className="dashboardLinks" button>
+              <i class="fas fa-users-cog"></i> Make Admin
+            </ListItem>
+          </Link>
+          <Link className="DashboardLink" to={`${url}/addDoctor`}>
+            <ListItem className="dashboardLinks" button>
+              <i class="fas fa-car"></i> Add Products
+            </ListItem>
+          </Link>
+          <Link className="DashboardLink" to={`${url}/manageAllOrders`}>
+            <ListItem className="dashboardLinks" button>
+              <i class="fas fa-cart-arrow-down "></i> Manage All orders
+            </ListItem>
+          </Link>
+          <Link className="DashboardLink" to={`${url}/manageAllProducts`}>
+            <ListItem className="dashboardLinks" button>
+              <i class="fas fa-clipboard-list"></i> Manage Products
+            </ListItem>
+          </Link>
+          <Link className="DashboardLink" to="/login">
+            <ListItem className="dashboardLinks" button>
+              <i class="fas fa-sign-out-alt"></i> Log Out
+            </ListItem>
+          </Link>
+        </List>
       )}
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
     </div>
   );
 
@@ -198,9 +185,15 @@ function Dashboard(props) {
         <Toolbar />
 
         <Switch>
-          {/* <Route exact path={path}>
-            <ManageAllProducts></ManageAllProducts>
-          </Route> */}
+          {admin ? (
+            <Route exact path={path}>
+              <ManageAllProducts></ManageAllProducts>
+            </Route>
+          ) : (
+            <Route exact path={path}>
+              <MyOrders></MyOrders>
+            </Route>
+          )}
           <AdminRoute path={`${path}/manageAllProducts`}>
             <ManageAllProducts></ManageAllProducts>
           </AdminRoute>

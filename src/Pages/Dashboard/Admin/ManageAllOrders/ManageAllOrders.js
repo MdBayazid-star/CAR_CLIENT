@@ -48,7 +48,7 @@ const ManageAllOrders = () => {
           alert("Update Successful");
         }
         console.log(data);
-        fetch("http://localhost:5000/usersOrders")
+        fetch("https://gentle-temple-66262.herokuapp.com/usersOrders")
           .then((res) => res.json())
           .then((data) => setUserOrders(data));
       });

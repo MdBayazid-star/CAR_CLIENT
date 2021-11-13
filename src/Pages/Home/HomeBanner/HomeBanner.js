@@ -18,12 +18,11 @@ const HomeBanner = () => {
                   />
                 </a>
               </h1>
-              <p className="">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nam
-                praesentium placeat hic. Voluptatibus pariatur nobis corrupti
-                eum asperiores eligendi consequatur tenetur voluptate illo
-                facilis unde enim animi iusto, fugiat laboriosam atque ex iure
-                doloremque veniam alias obcaecati! Nemo, amet?
+              <p className="fw-bold ">
+                A car is a wheeled motor vehicle used for transportation. Most
+                definitions of cars say that they run primarily on roads, seat
+                one-to-eight people, have four wheels and mainly transport
+                people rather than goods.
               </p>
               <div>
                 <button className="btn-Car me-4 mb-3">Log In </button>

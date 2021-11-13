@@ -54,7 +54,7 @@ const Review = () => {
     <div className="container">
       <div className="row">
         <div className="col-lg-8 col-md-7 col-12 my-5">
-          <div className="shadow p-5 m-3 borderRadius-4">
+          <div className="bs-red br-5 p-5 m-3">
             <Box sx={{}}>
               <Typography
                 id="transition-modal-title"
