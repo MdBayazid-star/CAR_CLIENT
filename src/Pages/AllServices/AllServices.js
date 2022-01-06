@@ -1,9 +1,31 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { setProducts } from "../../redux/actions/productActions";
 import Footer from "../Shared/Footer/Footer";
 import Header from "../Shared/Header/Header";
 
 const AllServices = () => {
+  const products = useSelector((state) => state);
+
+  const dispatch = useDispatch();
+  const fetchProducts = async () => {
+    console.log("dfsfdsf");
+    const response = await axios
+      .get("https://gentle-temple-66262.herokuapp.com/cars")
+      .catch((err) => {
+        console.log("error", err);
+      });
+    dispatch(setProducts(response.data.result));
+    console.log(response.data.result);
+  };
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+  console.log(products);
+  // const cars = products;
   const [cars, setCars] = useState([]);
   useEffect(() => {
     fetch("https://gentle-temple-66262.herokuapp.com/cars")
